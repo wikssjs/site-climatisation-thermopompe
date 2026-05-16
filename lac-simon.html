@@ -37,7 +37,7 @@
         "name": "Lac-Simon",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Abitibi-Témiscamingue (08)"
+          "name": "Outaouais (07)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Abitibi-Témiscamingue (08)",
-          "item": "https://climatisation-thermopompe.ca/region/abitibi-temiscamingue-08"
+          "name": "Outaouais (07)",
+          "item": "https://climatisation-thermopompe.ca/region/outaouais-07"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/abitibi-temiscamingue-08">Abitibi-Témiscamingue (08)</a>
+      <a href="/region/outaouais-07">Outaouais (07)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Climatisation Thermopompe Lac-Simon</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          14 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -269,7 +269,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
     </label>
   </div>
   <p id="projet-error" style="display:none"
-data-err-msg="Sélectionnez votre projet pour que nous trouvions les bons installateurs de climatisation."  ></p>
+ data-err-msg="Sélectionnez votre projet pour que nous trouvions les bons installateurs de climatisation."  ></p>
 </div>
 
 
@@ -287,7 +287,8 @@ data-err-msg="Sélectionnez votre projet pour que nous trouvions les bons instal
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système de climatisation."    class="el-select">
+  <select name="type-propriete"
+ required data-err-required="Le type de propriété est nécessaire pour dimensionner votre système de climatisation."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -302,7 +303,8 @@ data-err-msg="Sélectionnez votre projet pour que nous trouvions les bons instal
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser</label>
-  <select name="superficie" requireddata-err-required="La superficie à climatiser est nécessaire pour calculer la puissance requise."    class="el-select">
+  <select name="superficie"
+ required data-err-required="La superficie à climatiser est nécessaire pour calculer la puissance requise."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -362,7 +364,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
     </label>
   </div>
   <p id="delai-error" style="display:none"
-data-err-msg="Précisez votre délai pour planifier l'installation avant la saison chaude."  ></p>
+ data-err-msg="Précisez votre délai pour planifier l'installation avant la saison chaude."  ></p>
 </div>
 
 
@@ -415,7 +417,7 @@ data-err-msg="Précisez votre délai pour planifier l'installation avant la sais
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
+ placeholder="Marie Tremblay" required data-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -423,7 +425,7 @@ placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions de climatisation."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
+ placeholder="marie@exemple.com" required data-err-required="Votre courriel est requis pour recevoir vos soumissions de climatisation." data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -431,7 +433,7 @@ placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est req
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs de climatisation vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
+ placeholder="514 000-0000" required data-err-required="Votre numéro est requis pour que les installateurs de climatisation vous contactent." data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -439,7 +441,7 @@ placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis po
 <div class="el-field">
   <label class="el-label">Informations supplementaires</label>
   <textarea name="commentaires" rows="3"
-placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement..."    class="el-textarea"></textarea>
+ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement..."    class="el-textarea"></textarea>
 </div>
 
 
@@ -517,20 +519,14 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
 <section class="" style="background:var(--bg);padding-block:4.5rem 5rem;border-bottom:1px solid var(--bdr)">
   <div class="el-wrap-sm">
     <div class="cl-city-intro">
-      <section>
-  <h2>Deux saisons, un seul appareil : pourquoi la thermopompe change la donne financière</h2>
-  <p>À Lac-Simon, la réalité des hivers longs et des étés de plus en plus chauds force les propriétaires à choisir : installer un climatiseur fenêtre pour juillet-août, puis maintenir un système de chauffage séparé pendant neuf mois ? Ou investir une fois dans une thermopompe air-air performante qui travaille toute l'année. Sur dix ans, le calcul devient éloquent. Un climatiseur fenêtre consomme beaucoup d'électricité sur quelques semaines intensives, tandis qu'une thermopompe dimensionnée correctement distribue son usage sur deux saisons complètes, réduisant les pics de puissance et lissant les factures mensuelles. En Abitibi-Témiscamingue, où les degrés-jours de chauffage dépassent 6 000 annuels, le passage à une thermopompe limite aussi les appels au chauffage d'appoint électrique coûteux. Un seul entretien annuel suffit au lieu de deux services distincts. Les propriétaires de Lac-Simon qui comparent vraiment découvrent que la thermopompe paie une partie de son surcoût initial simplement en consolidant deux besoins saisonniers.</p>
-</section>
+      <h2>Dimensionner correctement sa thermopompe à Lac-Simon : l'erreur qui coûte cher</h2>
+<p>À Lac-Simon, beaucoup de propriétaires commettent l'erreur fatale de choisir une thermopompe trop petite pour économiser, ou trop grande sans raison. Le dimensionnement n'est pas une formule simple : il dépend de la superficie exacte de votre maison, de la qualité réelle de l'isolation des murs et combles, du type et nombre de fenêtres, et de l'exposition aux vents dominants de l'Outaouais. Une unité sous-dimensionnée peinera durant les 15 à 20 jours de canicule annuels où les températures dépassent 30°C, forçant le système en mode dégradé et gonflant votre facture d'électricité. Inversement, surdimensionner signifie payer plus cher à l'installation sans bénéfice réel. En hiver, quand l'Outaouais descend sous les -15°C durant 3 500 à 4 000 degrés-jours de chauffage, une mauvaise évaluation laisse des zones froides ou force le recours au chauffage d'appoint coûteux. Un installateur certifié doit effectuer un calcul de charge thermique sur place, tenant compte de vos conditions réelles.</p>
 
-<section>
-  <h2>Comment une thermopompe mal dimensionnée sabote votre confort — et votre portefeuille</h2>
-  <p>Lac-Simon présente un défi technique souvent sous-estimé : les maisons ancestrales aux murs épais côtoient des constructions plus récentes, tandis que les condos affichent des configurations de gaines très variables. Un technicien pressé qui pose une thermopompe sans mesurer l'isolation réelle, l'exposition des façades au soleil estival ou l'efficacité des fenêtres commet une erreur coûteuse. Une unité trop petite peine lors des canicules de juillet-août—elle tourne sans relâche, consomme à excès et ne rafraîchit jamais suffisamment. Une unité surdimensionnée cycle rapidement, gaspille l'électricité et laisse l'humidité résiduelle, créant un inconfort collant typique du climat humide abitibien. En hiver, le sous-dimensionnement force le chauffage d'appoint à compenser régulièrement. L'évaluation sur place, avec calcul BTU incluant la région climatique précise d'Abitibi-Témiscamingue, élimine ce risque et garantit que votre thermopompe fonctionne à son meilleur rendement les deux saisons.</p>
-</section>
+<h2>Coefficient de performance : comprendre vraiment ce que 3.0 signifie sur votre facture Hydro-Québec</h2>
+<p>Un COP de 3.0 n'est pas juste un nombre technique : c'est une garantie concrète que votre thermopompe restitue 3 kilowattheures de chaleur ou de froid pour chaque kilowattheure électrique consommé. À Lac-Simon, durant les 6 mois hivernaux de l'Outaouais où les degrés-jours de chauffage grimpent à 3 500-4 000, cette efficacité transforme votre facture énergétique. Un climatiseur de fenêtre classique fonctionne à 2.5-2.8 de coefficient efficace en refroidissement uniquement et ne chauffe pas du tout en hiver. Une thermopompe bien entretenue avec un COP de 3.0 chauffant et climatisant ensemble réduit les factures hivernales de 30 à 40% comparé à un chauffage électrique classique, tout en gérant les pics de chaleur estivale (300-400 degrés-jours de climatisation annuels). Sur 10 ans, cette différence représente des économies qui dépassent largement le surcoût initial, surtout avec les subventions Hydro-Québec LogisVert atteignant 6 720 $ pour une installation centrale en Outaouais.</p>
 
-<section>
-  <h2>Le vrai coût de l'électricité : un COP de 3,0 face à votre facture Hydro-Québec</h2>
-  <p>Le coefficient de performance (COP) d'une thermopompe moderne signifie que pour chaque kilowatt consommé, trois kilowatts de chaleur ou de fraîcheur sont délivrés. Pour un propriétaire de Lac-Simon chauffant à l'électricité traditionnelle, c'est la différence entre payer 100 % du coût énergétique complet et n'en payer que 33 %. Sur une saison hivernale rigide en Abitibi-Témiscamingue, où les températures plongent régulièrement sous -20°C et où les degrés-jours accumulent vite, cette efficacité réduit visiblement la facture annuelle. Un climatiseur fenêtre, lui, ne produit que du froid sans retour thermique : il consomme 100 % de son électricité sans aucun gain supplémentaire. Pendant les vagues de chaleur estivales de la région, cette inefficacité relative devient flagrante. Les modèles 2025 offrent des COP encore améliorés et demeurent efficaces jusqu'à -35°C, couvrant l'ensemble des conditions abitibiennes. Calculer le coût réel par degré de confort permet de comprendre pourquoi la thermopompe reste l'investissement le plus intelligent pour Lac-Simon.</p>
-</section>
+<h2>Trouver le bon installateur à Lac-Simon : ce qu'il ne faut pas ignorer</h2>
+<p>L'Outaouais compte 180 à 220 entreprises spécialisées en climatisation et thermopompes, mais toutes n'offrent pas le même niveau de service. Une visite sur place est non-négociable : un installateur sérieux évalue l'accès électrique, les risques de bruits pour vos voisins (critique en copropriété), les points d'ancrage robustes pour les unités murales, et les trajets de tuyauterie réfrigérante. Vérifiez absolument sa certification en réfrigération auprès des organismes québécois, ses références locales à Lac-Simon et ses garanties fabricant explicites (compresseur, échangeurs). Méfiez-vous des estimations gratuites par téléphone : elles ne valent rien face aux contraintes réelles de votre maison. Exigez un devis écrit détaillant la capacité en BTU, le modèle exact, les délais, et les conditions de garantie post-installation. Un bon installateur explique pourquoi il recommande un système plutôt qu'un autre, pas seulement le moins cher.</p>
     </div>
   </div>
 </section>
@@ -867,28 +863,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          14 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Climatisation thermopompe en Abitibi-Témiscamingue (08)</h4>
+        <h4 class="el-footer__col-label">Climatisation thermopompe en Outaouais (07)</h4>
         <div class="el-footer__links">
-          <a href="/la-reine">La Reine</a>
-          <a href="/rapide-danseur">Rapide-Danseur</a>
-          <a href="/saint-lambert">Saint-Lambert</a>
-          <a href="/kebaowek">Kebaowek</a>
-          <a href="/launay">Launay</a>
-          <a href="/laverlochere-angliers">Laverlochère-Angliers</a>
-          <a href="/sainte-germaine-boule">Sainte-Germaine-Boulé</a>
-          <a href="/latulipe-et-gaboury">Latulipe-et-Gaboury</a>
-          <a href="/normetal">Normétal</a>
-          <a href="/temiscaming">Témiscaming</a>
-          <a href="/saint-bruno-de-guigues">Saint-Bruno-de-Guigues</a>
-          <a href="/duparquet">Duparquet</a>
-          <a href="/berry">Berry</a>
-          <a href="/gallichan">Gallichan</a>
-          <a href="/saint-marc-de-figuery">Saint-Marc-de-Figuery</a>
+          <a href="/fort-coulonge">Fort-Coulonge</a>
+          <a href="/montebello">Montebello</a>
+          <a href="/saint-andre-avellin">Saint-André-Avellin</a>
+          <a href="/denholm">Denholm</a>
+          <a href="/lac-pythonga">Lac-Pythonga</a>
+          <a href="/lac-rapide">Lac-Rapide</a>
+          <a href="/pontiac">Pontiac</a>
+          <a href="/lac-nilgaut">Lac-Nilgaut</a>
+          <a href="/low">Low</a>
+          <a href="/sheenboro">Sheenboro</a>
+          <a href="/otter-lake">Otter Lake</a>
+          <a href="/lochaber">Lochaber</a>
+          <a href="/montpellier">Montpellier</a>
+          <a href="/messines">Messines</a>
+          <a href="/l-ile-du-grand-calumet">L'Île-du-Grand-Calumet</a>
         </div>
       </div>
 
@@ -896,7 +892,7 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/abitibi-temiscamingue-08">Abitibi-Témiscamingue (08)</a>
+          <a href="/region/outaouais-07">Outaouais (07)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -905,7 +901,7 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
 
     <div class="el-footer__bottom">
       <p>© 2026 Climatisation Thermopompe Québec · Tous droits réservés</p>
-      <p>Climatisation Thermopompe · Lac-Simon · Abitibi-Témiscamingue (08)</p>
+      <p>Climatisation Thermopompe · Lac-Simon · Outaouais (07)</p>
     </div>
   </div>
 </footer>
