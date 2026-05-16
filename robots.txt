@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://climatisation-thermopompe.ca/sitemap-index.xml
