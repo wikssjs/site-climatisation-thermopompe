@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          18 demandes de climatisation cette semaine
+          7 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -861,28 +861,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          18 demandes de climatisation cette semaine
+          7 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Montérégie (16)</h4>
         <div class="el-footer__links">
-          <a href="/saint-aime">Saint-Aimé</a>
-          <a href="/chambly">Chambly</a>
-          <a href="/beloeil">Beloeil</a>
-          <a href="/saint-gerard-majella">Saint-Gérard-Majella</a>
-          <a href="/saint-charles-sur-richelieu">Saint-Charles-sur-Richelieu</a>
+          <a href="/elgin">Elgin</a>
+          <a href="/sainte-anne-de-sorel">Sainte-Anne-de-Sorel</a>
+          <a href="/sainte-anne-de-sabrevois">Sainte-Anne-de-Sabrevois</a>
+          <a href="/vercheres">Verchères</a>
+          <a href="/franklin">Franklin</a>
+          <a href="/la-prairie">La Prairie</a>
+          <a href="/saint-antoine-sur-richelieu">Saint-Antoine-sur-Richelieu</a>
+          <a href="/saint-amable">Saint-Amable</a>
+          <a href="/beauharnois">Beauharnois</a>
+          <a href="/l-ile-perrot">L'Île-Perrot</a>
           <a href="/saint-paul-de-l-ile-aux-noix">Saint-Paul-de-l'Île-aux-Noix</a>
-          <a href="/saint-alexandre">Saint-Alexandre</a>
-          <a href="/saint-remi">Saint-Rémi</a>
-          <a href="/sainte-christine">Sainte-Christine</a>
-          <a href="/candiac">Candiac</a>
-          <a href="/lery">Léry</a>
-          <a href="/hudson">Hudson</a>
-          <a href="/saint-lazare">Saint-Lazare</a>
-          <a href="/chateauguay">Châteauguay</a>
-          <a href="/bethanie">Béthanie</a>
+          <a href="/kahnawake">Kahnawake</a>
+          <a href="/coteau-du-lac">Coteau-du-Lac</a>
+          <a href="/saint-hyacinthe">Saint-Hyacinthe</a>
+          <a href="/saint-robert">Saint-Robert</a>
         </div>
       </div>
 
@@ -1044,17 +1044,16 @@ function showStep(n) {
   _fStep = n;
 }
 
-function nextStep(n) {
-  var current = document.getElementById('step-' + _fStep);
-  if (!current) { showStep(n); return; }
+function _validateStep(current, stepNum) {
   var errCount = 0;
-
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
+    var isSelect = (inp.tagName === 'SELECT');
     if (!inp.value.trim()) {
       errCount++;
       _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      if (isSelect) inp.addEventListener('change', function() { _clearErr(inp); }, {once: true});
       return;
     }
     if (inp.type === 'tel') {
@@ -1073,19 +1072,26 @@ function nextStep(n) {
       }
     }
   });
-
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      errCount++;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) _showRadioErr(errEl, rg.name, current);
+  if (stepNum !== undefined) {
+    _radioGroups.forEach(function(rg) {
+      if (rg.step !== stepNum) return;
+      var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
+      if (!checked) {
+        errCount++;
+        if (rg.error) {
+          var errEl = document.getElementById(rg.error);
+          if (errEl) _showRadioErr(errEl, rg.name, current);
+        }
       }
-    }
-  });
+    });
+  }
+  return errCount;
+}
 
+function nextStep(n) {
+  var current = document.getElementById('step-' + _fStep);
+  if (!current) { showStep(n); return; }
+  var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
@@ -1109,6 +1115,11 @@ var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var current = document.getElementById('step-' + _fStep);
+    if (current) {
+      var errCount = _validateStep(current, _fStep);
+      if (errCount > 0) { _showBanner(current, errCount); return; }
+    }
     var data = new FormData(_form);
     fetch(_submitUrl, {
       method: 'POST',

@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          12 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -861,28 +861,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          12 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Chaudière-Appalaches (12)</h4>
         <div class="el-footer__links">
-          <a href="/sacre-coeur-de-jesus">Sacré-Coeur-de-Jésus</a>
-          <a href="/notre-dame-du-rosaire">Notre-Dame-du-Rosaire</a>
-          <a href="/beaumont">Beaumont</a>
-          <a href="/sainte-praxede">Sainte-Praxède</a>
-          <a href="/saint-simon-les-mines">Saint-Simon-les-Mines</a>
+          <a href="/saint-adrien-d-irlande">Saint-Adrien-d'Irlande</a>
+          <a href="/saint-lambert-de-lauzon">Saint-Lambert-de-Lauzon</a>
+          <a href="/saint-joseph-de-beauce">Saint-Joseph-de-Beauce</a>
+          <a href="/thetford-mines">Thetford Mines</a>
+          <a href="/irlande">Irlande</a>
+          <a href="/levis">Lévis</a>
+          <a href="/saint-louis-de-gonzague">Saint-Louis-de-Gonzague</a>
+          <a href="/saint-frederic">Saint-Frédéric</a>
+          <a href="/sainte-apolline-de-patton">Sainte-Apolline-de-Patton</a>
+          <a href="/saint-adalbert">Saint-Adalbert</a>
+          <a href="/saint-apollinaire">Saint-Apollinaire</a>
+          <a href="/saint-georges">Saint-Georges</a>
+          <a href="/saint-raphael">Saint-Raphaël</a>
           <a href="/beaulac-garthby">Beaulac-Garthby</a>
-          <a href="/notre-dame-du-sacre-coeur-d-issoudun">Notre-Dame-du-Sacré-Coeur-d'Issoudun</a>
-          <a href="/saint-pamphile">Saint-Pamphile</a>
-          <a href="/saint-charles-de-bellechasse">Saint-Charles-de-Bellechasse</a>
-          <a href="/cap-saint-ignace">Cap-Saint-Ignace</a>
-          <a href="/saint-nazaire-de-dorchester">Saint-Nazaire-de-Dorchester</a>
-          <a href="/sainte-henedine">Sainte-Hénédine</a>
-          <a href="/saint-luc-de-bellechasse">Saint-Luc-de-Bellechasse</a>
-          <a href="/lotbiniere">Lotbinière</a>
-          <a href="/saint-philibert">Saint-Philibert</a>
+          <a href="/sainte-justine">Sainte-Justine</a>
         </div>
       </div>
 
@@ -1044,17 +1044,16 @@ function showStep(n) {
   _fStep = n;
 }
 
-function nextStep(n) {
-  var current = document.getElementById('step-' + _fStep);
-  if (!current) { showStep(n); return; }
+function _validateStep(current, stepNum) {
   var errCount = 0;
-
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
+    var isSelect = (inp.tagName === 'SELECT');
     if (!inp.value.trim()) {
       errCount++;
       _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      if (isSelect) inp.addEventListener('change', function() { _clearErr(inp); }, {once: true});
       return;
     }
     if (inp.type === 'tel') {
@@ -1073,19 +1072,26 @@ function nextStep(n) {
       }
     }
   });
-
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      errCount++;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) _showRadioErr(errEl, rg.name, current);
+  if (stepNum !== undefined) {
+    _radioGroups.forEach(function(rg) {
+      if (rg.step !== stepNum) return;
+      var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
+      if (!checked) {
+        errCount++;
+        if (rg.error) {
+          var errEl = document.getElementById(rg.error);
+          if (errEl) _showRadioErr(errEl, rg.name, current);
+        }
       }
-    }
-  });
+    });
+  }
+  return errCount;
+}
 
+function nextStep(n) {
+  var current = document.getElementById('step-' + _fStep);
+  if (!current) { showStep(n); return; }
+  var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
@@ -1109,6 +1115,11 @@ var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var current = document.getElementById('step-' + _fStep);
+    if (current) {
+      var errCount = _validateStep(current, _fStep);
+      if (errCount > 0) { _showBanner(current, errCount); return; }
+    }
     var data = new FormData(_form);
     fetch(_submitUrl, {
       method: 'POST',
