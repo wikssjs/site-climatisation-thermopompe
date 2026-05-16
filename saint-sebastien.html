@@ -37,7 +37,7 @@
         "name": "Saint-Sébastien",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Montérégie (16)"
+          "name": "Estrie (05)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Montérégie (16)",
-          "item": "https://climatisation-thermopompe.ca/region/monteregie-16"
+          "name": "Estrie (05)",
+          "item": "https://climatisation-thermopompe.ca/region/estrie-05"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/monteregie-16">Montérégie (16)</a>
+      <a href="/region/estrie-05">Estrie (05)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Climatisation Thermopompe Saint-Sébastien</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          15 demandes de climatisation cette semaine
+          14 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -268,7 +268,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="projet-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="projet-error" style="display:none"
+data-err-msg="Sélectionnez votre projet pour que nous trouvions les bons installateurs de climatisation."  ></p>
 </div>
 
 
@@ -286,7 +287,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" required class="el-select">
+  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système de climatisation."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -301,7 +302,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser</label>
-  <select name="superficie" required class="el-select">
+  <select name="superficie" requireddata-err-required="La superficie à climatiser est nécessaire pour calculer la puissance requise."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -360,7 +361,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="delai-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="delai-error" style="display:none"
+data-err-msg="Précisez votre délai pour planifier l'installation avant la saison chaude."  ></p>
 </div>
 
 
@@ -413,7 +415,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"required    class="el-input">
+placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -421,7 +423,7 @@ placeholder="Marie Tremblay"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"required    class="el-input">
+placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions de climatisation."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -429,7 +431,7 @@ placeholder="marie@exemple.com"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"required    class="el-input">
+placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs de climatisation vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -515,14 +517,20 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
 <section class="" style="background:var(--bg);padding-block:4.5rem 5rem;border-bottom:1px solid var(--bdr)">
   <div class="el-wrap-sm">
     <div class="cl-city-intro">
-      <h2>Dimensionnement : l'erreur qui coûte cher en canicule et en janvier</h2>
-<p>À Saint-Sébastien, comme partout en Montérégie, un appareil sous-dimensionné devient un cauchemar lors des vagues de chaleur estivales et des grands froids de janvier. Beaucoup de propriétaires commandent une thermopompe sur la base d'une simple estimation, sans évaluation thermique réelle de la maison. Or, le calcul doit tenir compte de la superficie chauffée, de la qualité isolante des murs et de la toiture, de la surface et l'orientation des fenêtres, et de l'exposition au soleil. Une maison mal isolée avec beaucoup de vitrages ouest aura besoin d'une puissance bien supérieure à celle d'une maison récente aux murs épais. Si la thermopompe est trop faible, elle tournera sans arrêt lors des 15 à 20 jours annuels où la température dépasse 32 °C, consumant plus d'électricité et ne rafraîchissant jamais vraiment. En hiver, elle restera bloquée à la résistance d'appoint, ruinant vos économies. Inversement, un surdimensionnement crée des cycles courts, usant prématurément le compresseur et gaspillant l'énergie. Un installateur qualifié effectue un bilan thermique sur place, indispensable en Montérégie où les hivers rigoureux et les étés humides exigent une précision millimétrique.</p>
+      <section>
+  <h2>Thermopompe ou climatiseur fenêtre : le vrai coût sur dix ans</h2>
+  <p>Un climatiseur fenêtre coûte moins cher à l'achat, mais il ne chauffe pas l'hiver — alors qu'en Estrie (05), les propriétaires de Saint-Sébastien paient du chauffage électrique ou au mazout de novembre à avril. Sur dix ans, l'addition devient vite lourde : un climatiseur fenêtre consomme davantage d'électricité en été pour le même confort qu'une thermopompe, et vous continuez à payer un chauffage séparé tout l'hiver. Une thermopompe air-air divise votre facture de chauffage par deux ou trois, selon l'isolation de votre maison, et refroidit tout aussi efficacement en juillet et août. L'installation coûte plus cher, certes, mais LogisVert d'Hydro-Québec réduit cet écart avec des subventions intéressantes. Quand on additionne vingt ans d'exploitation, la thermopompe revient moins chère — et elle fait aussi le travail de chauffage. C'est pourquoi la majorité des propriétaires de la région qui passent à la climatisation choisissent la thermopompe.</p>
+</section>
 
-<h2>Un seul appareil, deux saisons : l'économie oubliée des thermopompes</h2>
-<p>Le piège des climatiseurs fenêtre, c'est qu'ils ne chauffent pas. À Saint-Sébastien, vous achèteriez une unité pour juillet-août, puis vous garderez votre fournaise au gaz ou au mazout pour octobre à avril. Sur dix ans, ce choix coûte largement plus cher qu'une thermopompe murale ou centrale qui travaille toute l'année. Une thermopompe air-air de qualité premium (SEER 16+, HSPF 10+) vous refroidit l'été et chauffe l'hiver avec un rendement énergétique deux à trois fois supérieur à un climatiseur fenêtre ou à une résistance électrique. En Montérégie, où les hivers dépassent 4 000 degrés-jours de chauffage, cette double fonction réduit drastiquement votre facture Hydro-Québec sur l'année complète. De plus, un seul entretien annuel suffit pour la thermopompe, contre deux nettoyages obligatoires pour un climatiseur fenêtre qui, lui, reste moins efficace à chaque saison. Les propriétaires qui font ce calcul sur dix ans voient clairement que la thermopompe amortit rapidement son investissement plus élevé au départ.</p>
+<section>
+  <h2>Mal dimensionner sa thermopompe coûte cher en canicule et en janvier</h2>
+  <p>Saint-Sébastien a beau être plus frais que Montréal, les jours où le thermomètre dépasse 32 °C avec un humidex de 40 ne sont pas rares en été ; l'hiver, les températures chutent régulièrement à -15 °C ou -20 °C. Une thermopompe trop petite ne rafraîchira jamais votre salon lors des pics de chaleur, et elle peinera à chauffer efficacement quand le froid arrive. Une unité surdimensionnée consomme inutilement et ne déshumidifie pas bien. Le calcul correct tient compte de la superficie à climatiser, de la qualité de l'isolation, de l'orientation des fenêtres et de l'exposition au soleil — chaque maison de Saint-Sébastien est différente. Un installateur compétent fait une évaluation sur place, prend les mesures, examine les anciens relevés de consommation énergétique, et recommande la capacité juste. C'est pourquoi faire confiance à un professionnel certifié en réfrigération n'est pas un luxe : c'est l'assurance que votre investissement fonctionne vraiment.</p>
+</section>
 
-<h2>Trouver un installateur digne de confiance sans se laisser piéger</h2>
-<p>En Montérégie, beaucoup d'entrepreneurs acceptent d'installer n'importe quoi sans diagnostic préalable. À Saint-Sébastien, exigez une visite sur place, une estimation écrite du dimensionnement et une justification des puissances proposées. L'installateur doit détenir une certification en réfrigération reconnue (RBQ au Québec), respecter les normes d'évacuation des condensats et de fixation des unités extérieures, surtout si vous êtes en copropriété. Demandez les garanties du fabricant (compresseur, pièces), la durée de la garantie main-d'œuvre, et vérifiez qu'il est assuré en responsabilité civile. Attention aux offres sans diagnostic ou au devis sans précision technique : ce sont souvent les plus mauvaises affaires. Vérifiez aussi que l'entreprise vous explique l'accès aux programmes d'aide Hydro-Québec ou provinciaux, car beaucoup de propriétaires de Montérégie y sont admissibles et abandonnent des centaines de dollars. Un vrai professionnel vous soumet un plan d'entretien, listant les interventions annuelles nécessaires pour préserver performance et durée de vie.</p>
+<section>
+  <h2>Entretien annuel : l'oubli qui réduit la durée de vie de moitié</h2>
+  <p>Beaucoup de propriétaires installent une thermopompe et l'oublient ensuite jusqu'au jour où elle fonctionne mal. Or, chaque année, les filtres s'encrassent, le condenseur se salit de poussière et de débris extérieurs, et les niveaux de fluide frigorigène peuvent faiblir. En Estrie (05), où les poussières de route et les pollens saisonniers sont courants, cet encrassement s'accélère. Un entretien annuel — nettoyage des unités intérieure et extérieure, vérification de la pression, inspection des connexions — coûte peu et double la durée de vie de votre appareil. Sans cet entretien, une thermopompe qui devrait durer 15 à 20 ans peut montrer des signes d'usure rapide après 8 à 10 ans, et vous risquez une réparation coûteuse durant une canicule ou une vague de froid hivernale. Les propriétaires de Saint-Sébastien qui négligent cet entretien le regrettent invariablement : mieux vaut investir 200 à 300 euros par an qu'une réparation d'urgence de plusieurs milliers.</p>
+</section>
     </div>
   </div>
 </section>
@@ -859,28 +867,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          15 demandes de climatisation cette semaine
+          14 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Climatisation thermopompe en Montérégie (16)</h4>
+        <h4 class="el-footer__col-label">Climatisation thermopompe en Estrie (05)</h4>
         <div class="el-footer__links">
-          <a href="/sainte-martine">Sainte-Martine</a>
-          <a href="/beauharnois">Beauharnois</a>
-          <a href="/saint-antoine-sur-richelieu">Saint-Antoine-sur-Richelieu</a>
-          <a href="/saint-joseph-de-sorel">Saint-Joseph-de-Sorel</a>
-          <a href="/sainte-catherine">Sainte-Catherine</a>
-          <a href="/saint-jacques-le-mineur">Saint-Jacques-le-Mineur</a>
-          <a href="/otterburn-park">Otterburn Park</a>
-          <a href="/l-ile-cadieux">L'Île-Cadieux</a>
-          <a href="/notre-dame-de-l-ile-perrot">Notre-Dame-de-l'Île-Perrot</a>
-          <a href="/saint-blaise-sur-richelieu">Saint-Blaise-sur-Richelieu</a>
-          <a href="/saint-charles-sur-richelieu">Saint-Charles-sur-Richelieu</a>
-          <a href="/venise-en-quebec">Venise-en-Québec</a>
-          <a href="/saint-bruno-de-montarville">Saint-Bruno-de-Montarville</a>
-          <a href="/terrasse-vaudreuil">Terrasse-Vaudreuil</a>
-          <a href="/saint-bernard-de-lacolle">Saint-Bernard-de-Lacolle</a>
+          <a href="/saint-malo">Saint-Malo</a>
+          <a href="/marston">Marston</a>
+          <a href="/ascot-corner">Ascot Corner</a>
+          <a href="/stornoway">Stornoway</a>
+          <a href="/frontenac">Frontenac</a>
+          <a href="/scotstown">Scotstown</a>
+          <a href="/saint-venant-de-paquette">Saint-Venant-de-Paquette</a>
+          <a href="/ulverton">Ulverton</a>
+          <a href="/wotton">Wotton</a>
+          <a href="/valcourt">Valcourt</a>
+          <a href="/newport">Newport</a>
+          <a href="/saint-robert-bellarmin">Saint-Robert-Bellarmin</a>
+          <a href="/lambton">Lambton</a>
+          <a href="/sainte-cecile-de-whitton">Sainte-Cécile-de-Whitton</a>
+          <a href="/nantes">Nantes</a>
         </div>
       </div>
 
@@ -888,7 +896,7 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/monteregie-16">Montérégie (16)</a>
+          <a href="/region/estrie-05">Estrie (05)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -897,7 +905,7 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
 
     <div class="el-footer__bottom">
       <p>© 2026 Climatisation Thermopompe Québec · Tous droits réservés</p>
-      <p>Climatisation Thermopompe · Saint-Sébastien · Montérégie (16)</p>
+      <p>Climatisation Thermopompe · Saint-Sébastien · Estrie (05)</p>
     </div>
   </div>
 </footer>
@@ -1022,7 +1030,7 @@ function _showRadioErr(errEl, groupName, stepEl) {
   while (errEl.firstChild) errEl.removeChild(errEl.firstChild);
   errEl.appendChild(_mkSvg('warn'));
   var span = document.createElement('span');
-  span.textContent = 'Veuillez faire un choix.';
+  span.textContent = errEl.dataset.errMsg || 'Veuillez faire un choix.';
   errEl.appendChild(span);
   stepEl.querySelectorAll('input[name="' + groupName + '"]').forEach(function(r) {
     r.addEventListener('change', function() { errEl.style.display = 'none'; }, {once: true});
@@ -1051,7 +1059,7 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       errCount++;
-      _fieldErr(inp, 'Ce champ est requis.');
+      _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       return;
     }
@@ -1059,14 +1067,14 @@ function nextStep(n) {
       var digits = inp.value.replace(/\D/g, '');
       if (digits.length !== 10) {
         errCount++;
-        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
+        _fieldErr(inp, inp.dataset.errFormat || 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
     if (inp.type === 'email') {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
         errCount++;
-        _fieldErr(inp, 'Adresse courriel invalide.');
+        _fieldErr(inp, inp.dataset.errFormat || 'Adresse courriel invalide.');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }

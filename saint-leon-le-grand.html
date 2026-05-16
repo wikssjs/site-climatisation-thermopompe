@@ -37,7 +37,7 @@
         "name": "Saint-Léon-le-Grand",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Bas-Saint-Laurent (01)"
+          "name": "Mauricie (04)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Bas-Saint-Laurent (01)",
-          "item": "https://climatisation-thermopompe.ca/region/bas-saint-laurent-01"
+          "name": "Mauricie (04)",
+          "item": "https://climatisation-thermopompe.ca/region/mauricie-04"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/bas-saint-laurent-01">Bas-Saint-Laurent (01)</a>
+      <a href="/region/mauricie-04">Mauricie (04)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Climatisation Thermopompe Saint-Léon-le-Grand</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          11 demandes de climatisation cette semaine
+          12 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -268,7 +268,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="projet-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="projet-error" style="display:none"
+data-err-msg="Sélectionnez votre projet pour que nous trouvions les bons installateurs de climatisation."  ></p>
 </div>
 
 
@@ -286,7 +287,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" required class="el-select">
+  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système de climatisation."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -301,7 +302,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser</label>
-  <select name="superficie" required class="el-select">
+  <select name="superficie" requireddata-err-required="La superficie à climatiser est nécessaire pour calculer la puissance requise."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -360,7 +361,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="delai-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="delai-error" style="display:none"
+data-err-msg="Précisez votre délai pour planifier l'installation avant la saison chaude."  ></p>
 </div>
 
 
@@ -413,7 +415,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"required    class="el-input">
+placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -421,7 +423,7 @@ placeholder="Marie Tremblay"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"required    class="el-input">
+placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions de climatisation."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -429,7 +431,7 @@ placeholder="marie@exemple.com"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"required    class="el-input">
+placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs de climatisation vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -516,18 +518,18 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
   <div class="el-wrap-sm">
     <div class="cl-city-intro">
       <section>
-  <h2>Dimensionnement : l'erreur qui coûte cher en canicule et en hiver</h2>
-  <p>À Saint-Léon-le-Grand, beaucoup de propriétaires commettent l'erreur d'installer une thermopompe sous-dimensionnée pour économiser. Or, quand juillet arrive avec ses pics au-dessus de 30 °C et humidex à 32, un appareil faible ne refroidira jamais votre maison confortablement. L'inverse se produit l'hiver : les degrés-jours de chauffage étant élevés en Bas-Saint-Laurent, un système sous-puissant bascule constamment sur la résistance électrique d'appoint, ce qui explose votre facture Hydro-Québec. Le dimensionnement correct exige une évaluation précise : surface, isolation des murs épais, orientation des fenêtres, exposition nord-sud. Une maison mal isolée de 1500 pieds carrés n'a pas les mêmes besoins qu'une construction neuve. Sans calcul thermique réel sur place, vous risquez de payer 30 à 40 % plus cher en électricité pendant dix ans.</p>
+  <h2>Climatiseur fenêtre ou thermopompe : le calcul réel sur dix ans en Mauricie</h2>
+  <p>Un propriétaire de Saint-Léon-le-Grand qui installe un climatiseur fenêtre pour l'été paie entre 400 et 800 $ à l'achat, mais doit ensuite acheter un chauffage d'appoint ou compter sur le mazout ou l'électricité de base l'hiver. La thermopompe air-air coûte plus cher initialement, mais elle chauffe et refroidit avec un seul appareil, réduisant drastiquement la facture d'Hydro-Québec sur douze mois. En Mauricie où les hivers comptent 3 500 degrés-jours de chauffage et les étés apportent régulièrement 25 à 30 jours au-dessus de 25 °C, cette dualité justifie l'investissement. Après dix ans, le propriétaire a économisé plusieurs milliers de dollars en électricité, sans compter un seul entretien annuel au lieu de retirer et remiser le climatiseur chaque saison. Les aides d'Hydro-Québec LogisVert réduisent aussi le coût d'entrée, rendant la thermopompe accessible dès la première année.</p>
 </section>
 
 <section>
-  <h2>Thermopompe contre climatiseur fenêtre : l'écart financier sur dix ans</h2>
-  <p>Un climatiseur fenêtre coûte moins cher à l'achat, mais compare les chiffres réels pour Saint-Léon-le-Grand. Un climatiseur fenêtre consomme environ 1,5 à 2 kWh par heure de fonctionnement intensif en été. Sur deux mois de canicule modérée, cela représente déjà 600 à 900 kWh supplémentaires. Une thermopompe air-air avec COP de 3,0 divise par trois votre consommation électrique pour le même résultat en climatisation. Ajoutez le chauffage hivernal : la thermopompe économise 40 à 50 % de vos frais de chauffage comparé à un climatiseur plus une fournaise séparate. Sur dix ans en Bas-Saint-Laurent, l'économie dépasse souvent 4 000 à 6 000 dollars, sans compter un seul appareil à entretenir, une seule télécommande et aucun bruit d'unité fenêtre qui vibre.</p>
+  <h2>Quand le dimensionnement s'avère mal fait : canicules et gels à Saint-Léon-le-Grand</h2>
+  <p>Une thermopompe sous-dimensionnée pour une maison de 1 500 pieds carrés à Saint-Léon-le-Grand ne suffira pas lors des pics de juillet-août, laissant la température intérieure à 26–28 °C au lieu de 21 °C confortable. Inversement, une unité surdimensionnée consomme plus, cycle rapidement sans déshumidifier l'air humide de Mauricie, et affiche une efficacité réduite. Le vrai calcul tient compte de la superficie, du type d'isolation, de l'orientation des fenêtres sud et de la qualité de l'étanchéité. Une maison ancienne aux murs épais mais aux joints variés demande une puissance différente d'une construction récente bien scellée. Un installateur certifié sur place évalue ces paramètres, calcule les BTU nécessaires et propose la bonne capacité. Sauter cette étape expose le propriétaire à des appels de climatisation manqués en canicule et à des surcoûts énergétiques tout l'hiver dans la région.</p>
 </section>
 
 <section>
-  <h2>L'entretien annuel que les propriétaires oublient, et ce que cela coûte vraiment</h2>
-  <p>Chaque printemps et automne, une thermopompe à Saint-Léon-le-Grand exige un nettoyage des filtres, une inspection des conduits de réfrigérant et un test de performance. Cet entretien prend deux heures et coûte généralement entre 150 et 250 dollars. Beaucoup de propriétaires du Bas-Saint-Laurent le négligent pour "économiser". Résultat : après trois ans sans maintenance, l'échangeur s'encrasse, le débit chute, l'efficacité s'effondre. Vous consommez 25 à 35 % plus d'électricité pour le même confort. Pire encore, un système négligé vieillit prématurément : sa durée de vie passe de 15 à 20 ans à seulement 10 à 12 ans. Un simple entretien annuel coûte 1 500 à 2 500 dollars sur quinze ans, tandis qu'un remplacement prématuré en coûte 6 000 à 8 000. L'entretien régulier garde votre appareil performant, réduit vos factures et prolonge votre investissement.</p>
+  <h2>L'installateur de confiance : évaluation sur site et garanties qui comptent</h2>
+  <p>Choisir un entrepreneur en chauffage-climatisation à Saint-Léon-le-Grand sans visite préalable est un pari risqué. Un vrai professionnel se déplace, mesure la maison, évalue l'isolation et les besoins thermiques avant de proposer un modèle. Il détient une certification en réfrigération (obligatoire en Québec), assure que l'installation respecte le code de construction mauricien et offre une garantie fabricant lisible. En Mauricie où les anciens bâtiments demandent des ajustements spécifiques et où les vagues de chaleur testent l'équipement, cette expertise évite les installations bâclées. Vérifiez aussi que l'entrepreneur participe aux programmes d'aide d'Hydro-Québec ou de Rénoclimat : il connaît la liste des modèles admissibles et peut accélérer votre remboursement. Un devis détaillé, une visite complète et des références locales sont vos assurances contre un achat inadapté.</p>
 </section>
     </div>
   </div>
@@ -865,28 +867,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          11 demandes de climatisation cette semaine
+          12 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Climatisation thermopompe en Bas-Saint-Laurent (01)</h4>
+        <h4 class="el-footer__col-label">Climatisation thermopompe en Mauricie (04)</h4>
         <div class="el-footer__links">
-          <a href="/saint-cyprien">Saint-Cyprien</a>
-          <a href="/saint-leandre">Saint-Léandre</a>
-          <a href="/packington">Packington</a>
-          <a href="/lac-des-eaux-mortes">Lac-des-Eaux-Mortes</a>
-          <a href="/notre-dame-des-neiges">Notre-Dame-des-Neiges</a>
-          <a href="/saint-tharcisius">Saint-Tharcisius</a>
-          <a href="/saint-pierre-de-lamy">Saint-Pierre-de-Lamy</a>
-          <a href="/saint-bruno-de-kamouraska">Saint-Bruno-de-Kamouraska</a>
-          <a href="/saint-germain-de-kamouraska">Saint-Germain-de-Kamouraska</a>
-          <a href="/sainte-jeanne-d-arc-de-la-mitis">Sainte-Jeanne-d'Arc-de-la-Mitis</a>
-          <a href="/lac-matapedia">Lac-Matapédia</a>
-          <a href="/saint-noel">Saint-Noël</a>
-          <a href="/la-trinite-des-monts">La Trinité-des-Monts</a>
-          <a href="/riviere-patapedia-est">Rivière-Patapédia-Est</a>
-          <a href="/saint-valerien">Saint-Valérien</a>
+          <a href="/saint-luc-de-vincennes">Saint-Luc-de-Vincennes</a>
+          <a href="/riviere-de-la-savane">Rivière-de-la-Savane</a>
+          <a href="/lac-masketsi">Lac-Masketsi</a>
+          <a href="/obedjiwan">Obedjiwan</a>
+          <a href="/sainte-ursule">Sainte-Ursule</a>
+          <a href="/saint-prosper-de-champlain">Saint-Prosper-de-Champlain</a>
+          <a href="/lac-normand">Lac-Normand</a>
+          <a href="/lac-aux-sables">Lac-aux-Sables</a>
+          <a href="/sainte-anne-de-la-perade">Sainte-Anne-de-la-Pérade</a>
+          <a href="/sainte-thecle">Sainte-Thècle</a>
+          <a href="/sainte-genevieve-de-batiscan">Sainte-Geneviève-de-Batiscan</a>
+          <a href="/la-tuque">La Tuque</a>
+          <a href="/yamachiche">Yamachiche</a>
+          <a href="/saint-etienne-des-gres">Saint-Étienne-des-Grès</a>
+          <a href="/wemotaci">Wemotaci</a>
         </div>
       </div>
 
@@ -894,7 +896,7 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/bas-saint-laurent-01">Bas-Saint-Laurent (01)</a>
+          <a href="/region/mauricie-04">Mauricie (04)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -903,7 +905,7 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
 
     <div class="el-footer__bottom">
       <p>© 2026 Climatisation Thermopompe Québec · Tous droits réservés</p>
-      <p>Climatisation Thermopompe · Saint-Léon-le-Grand · Bas-Saint-Laurent (01)</p>
+      <p>Climatisation Thermopompe · Saint-Léon-le-Grand · Mauricie (04)</p>
     </div>
   </div>
 </footer>
@@ -1028,7 +1030,7 @@ function _showRadioErr(errEl, groupName, stepEl) {
   while (errEl.firstChild) errEl.removeChild(errEl.firstChild);
   errEl.appendChild(_mkSvg('warn'));
   var span = document.createElement('span');
-  span.textContent = 'Veuillez faire un choix.';
+  span.textContent = errEl.dataset.errMsg || 'Veuillez faire un choix.';
   errEl.appendChild(span);
   stepEl.querySelectorAll('input[name="' + groupName + '"]').forEach(function(r) {
     r.addEventListener('change', function() { errEl.style.display = 'none'; }, {once: true});
@@ -1057,7 +1059,7 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       errCount++;
-      _fieldErr(inp, 'Ce champ est requis.');
+      _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       return;
     }
@@ -1065,14 +1067,14 @@ function nextStep(n) {
       var digits = inp.value.replace(/\D/g, '');
       if (digits.length !== 10) {
         errCount++;
-        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
+        _fieldErr(inp, inp.dataset.errFormat || 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
     if (inp.type === 'email') {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
         errCount++;
-        _fieldErr(inp, 'Adresse courriel invalide.');
+        _fieldErr(inp, inp.dataset.errFormat || 'Adresse courriel invalide.');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
