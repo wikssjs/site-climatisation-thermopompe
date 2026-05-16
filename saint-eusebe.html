@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          11 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -859,28 +859,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          11 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Bas-Saint-Laurent (01)</h4>
         <div class="el-footer__links">
-          <a href="/kamouraska">Kamouraska</a>
           <a href="/saint-medard">Saint-Médard</a>
-          <a href="/kataskomiq">Kataskomiq</a>
-          <a href="/pohenegamook">Pohénégamook</a>
-          <a href="/la-pocatiere">La Pocatière</a>
-          <a href="/saint-adelme">Saint-Adelme</a>
-          <a href="/saint-francois-xavier-de-viger">Saint-François-Xavier-de-Viger</a>
-          <a href="/les-mechins">Les Méchins</a>
-          <a href="/cacouna">Cacouna</a>
-          <a href="/saint-cleophas">Saint-Cléophas</a>
+          <a href="/grand-metis">Grand-Métis</a>
+          <a href="/l-isle-verte">L'Isle-Verte</a>
+          <a href="/riviere-bleue">Rivière-Bleue</a>
+          <a href="/saint-jean-de-dieu">Saint-Jean-de-Dieu</a>
+          <a href="/riviere-vaseuse">Rivière-Vaseuse</a>
+          <a href="/riviere-patapedia-est">Rivière-Patapédia-Est</a>
+          <a href="/riviere-bonjour">Rivière-Bonjour</a>
+          <a href="/saint-alexandre-des-lacs">Saint-Alexandre-des-Lacs</a>
           <a href="/baie-des-sables">Baie-des-Sables</a>
-          <a href="/saint-denis-de-la-bouteillerie">Saint-Denis-De La Bouteillerie</a>
-          <a href="/saint-modeste">Saint-Modeste</a>
-          <a href="/saint-leandre">Saint-Léandre</a>
-          <a href="/saint-hubert-de-riviere-du-loup">Saint-Hubert-de-Rivière-du-Loup</a>
+          <a href="/saint-elzear-de-temiscouata">Saint-Elzéar-de-Témiscouata</a>
+          <a href="/saint-donat">Saint-Donat</a>
+          <a href="/saint-noel">Saint-Noël</a>
+          <a href="/la-trinite-des-monts">La Trinité-des-Monts</a>
+          <a href="/saint-honore-de-temiscouata">Saint-Honoré-de-Témiscouata</a>
         </div>
       </div>
 
@@ -944,6 +944,18 @@ function showStep(n) {
   _fStep = n;
 }
 
+function _fieldErr(inp, msg) {
+  var p = inp.parentNode.querySelector('.form-err');
+  if (!p) { p = document.createElement('p'); p.className = 'form-err'; p.style.cssText = 'font-size:.75rem;color:#ef4444;margin-top:.25rem'; inp.parentNode.appendChild(p); }
+  p.textContent = msg;
+  inp.style.borderColor = '#fca5a5';
+}
+function _clearErr(inp) {
+  var p = inp.parentNode.querySelector('.form-err');
+  if (p) p.remove();
+  inp.style.borderColor = '';
+}
+
 function nextStep(n) {
   var current = document.getElementById('step-' + _fStep);
   if (!current) { showStep(n); return; }
@@ -953,8 +965,24 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       valid = false;
-      inp.style.borderColor = '#fca5a5';
-      inp.addEventListener('input', function() { inp.style.borderColor = ''; }, {once: true});
+      _fieldErr(inp, 'Ce champ est requis.');
+      inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      return;
+    }
+    if (inp.type === 'tel') {
+      var digits = inp.value.replace(/\D/g, '');
+      if (digits.length !== 10) {
+        valid = false;
+        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex: 514 000-0000).');
+        inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      }
+    }
+    if (inp.type === 'email') {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
+        valid = false;
+        _fieldErr(inp, 'Adresse courriel invalide.');
+        inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      }
     }
   });
 
@@ -973,6 +1001,17 @@ function nextStep(n) {
   if (!valid) return;
   showStep(n);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input[type="tel"]').forEach(function(inp) {
+    inp.addEventListener('input', function() {
+      var d = inp.value.replace(/\D/g, '').slice(0, 10);
+      if (d.length <= 3) inp.value = d;
+      else if (d.length <= 6) inp.value = d.slice(0,3) + ' ' + d.slice(3);
+      else inp.value = d.slice(0,3) + ' ' + d.slice(3,6) + '-' + d.slice(6);
+    });
+  });
+});
 
 function prevStep(n) { showStep(n); }
 

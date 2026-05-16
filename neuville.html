@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          10 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -859,28 +859,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          10 demandes de climatisation cette semaine
+          16 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Capitale-Nationale (03)</h4>
         <div class="el-footer__links">
-          <a href="/saint-aime-des-lacs">Saint-Aimé-des-Lacs</a>
-          <a href="/portneuf">Portneuf</a>
-          <a href="/stoneham-et-tewkesbury">Stoneham-et-Tewkesbury</a>
-          <a href="/sainte-christine-d-auvergne">Sainte-Christine-d'Auvergne</a>
-          <a href="/saint-basile">Saint-Basile</a>
-          <a href="/saint-laurent-de-l-ile-d-orleans">Saint-Laurent-de-l'Île-d'Orléans</a>
-          <a href="/saint-simeon">Saint-Siméon</a>
-          <a href="/sainte-anne-de-beaupre">Sainte-Anne-de-Beaupré</a>
-          <a href="/saint-urbain">Saint-Urbain</a>
-          <a href="/lac-beauport">Lac-Beauport</a>
-          <a href="/saint-marc-des-carrieres">Saint-Marc-des-Carrières</a>
+          <a href="/lac-delage">Lac-Delage</a>
           <a href="/baie-sainte-catherine">Baie-Sainte-Catherine</a>
-          <a href="/saint-ubalde">Saint-Ubalde</a>
-          <a href="/saint-thuribe">Saint-Thuribe</a>
+          <a href="/sainte-brigitte-de-laval">Sainte-Brigitte-de-Laval</a>
+          <a href="/saint-gilbert">Saint-Gilbert</a>
           <a href="/linton">Linton</a>
+          <a href="/boischatel">Boischatel</a>
+          <a href="/l-ancienne-lorette">L'Ancienne-Lorette</a>
+          <a href="/deschambault-grondines">Deschambault-Grondines</a>
+          <a href="/saint-ferreol-les-neiges">Saint-Ferréol-les-Neiges</a>
+          <a href="/la-malbaie">La Malbaie</a>
+          <a href="/l-ange-gardien">L'Ange-Gardien</a>
+          <a href="/saint-francois-de-l-ile-d-orleans">Saint-François-de-l'Île-d'Orléans</a>
+          <a href="/saint-tite-des-caps">Saint-Tite-des-Caps</a>
+          <a href="/sainte-famille-de-l-ile-d-orleans">Sainte-Famille-de-l'Île-d'Orléans</a>
+          <a href="/lac-jacques-cartier">Lac-Jacques-Cartier</a>
         </div>
       </div>
 
@@ -944,6 +944,18 @@ function showStep(n) {
   _fStep = n;
 }
 
+function _fieldErr(inp, msg) {
+  var p = inp.parentNode.querySelector('.form-err');
+  if (!p) { p = document.createElement('p'); p.className = 'form-err'; p.style.cssText = 'font-size:.75rem;color:#ef4444;margin-top:.25rem'; inp.parentNode.appendChild(p); }
+  p.textContent = msg;
+  inp.style.borderColor = '#fca5a5';
+}
+function _clearErr(inp) {
+  var p = inp.parentNode.querySelector('.form-err');
+  if (p) p.remove();
+  inp.style.borderColor = '';
+}
+
 function nextStep(n) {
   var current = document.getElementById('step-' + _fStep);
   if (!current) { showStep(n); return; }
@@ -953,8 +965,24 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       valid = false;
-      inp.style.borderColor = '#fca5a5';
-      inp.addEventListener('input', function() { inp.style.borderColor = ''; }, {once: true});
+      _fieldErr(inp, 'Ce champ est requis.');
+      inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      return;
+    }
+    if (inp.type === 'tel') {
+      var digits = inp.value.replace(/\D/g, '');
+      if (digits.length !== 10) {
+        valid = false;
+        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex: 514 000-0000).');
+        inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      }
+    }
+    if (inp.type === 'email') {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
+        valid = false;
+        _fieldErr(inp, 'Adresse courriel invalide.');
+        inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      }
     }
   });
 
@@ -973,6 +1001,17 @@ function nextStep(n) {
   if (!valid) return;
   showStep(n);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input[type="tel"]').forEach(function(inp) {
+    inp.addEventListener('input', function() {
+      var d = inp.value.replace(/\D/g, '').slice(0, 10);
+      if (d.length <= 3) inp.value = d;
+      else if (d.length <= 6) inp.value = d.slice(0,3) + ' ' + d.slice(3);
+      else inp.value = d.slice(0,3) + ' ' + d.slice(3,6) + '-' + d.slice(6);
+    });
+  });
+});
 
 function prevStep(n) { showStep(n); }
 
