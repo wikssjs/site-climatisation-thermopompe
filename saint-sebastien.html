@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          13 demandes de climatisation cette semaine
+          14 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -213,7 +213,7 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
   <input type="hidden" name="access_key" value="c10b7556-70ac-4af0-bf23-518aefa51822">
   <input type="hidden" name="subject" value="Nouveau lead — Climatisation Thermopompe Québec — Saint-Sébastien">
   <input type="hidden" name="ville-cible" value="Saint-Sébastien">
@@ -869,28 +869,28 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          13 demandes de climatisation cette semaine
+          14 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Estrie (05)</h4>
         <div class="el-footer__links">
-          <a href="/nantes">Nantes</a>
-          <a href="/kingsbury">Kingsbury</a>
-          <a href="/eastman">Eastman</a>
-          <a href="/saint-hermenegilde">Saint-Herménégilde</a>
-          <a href="/ayer-s-cliff">Ayer's Cliff</a>
-          <a href="/farnham">Farnham</a>
+          <a href="/saint-malo">Saint-Malo</a>
+          <a href="/marston">Marston</a>
+          <a href="/ascot-corner">Ascot Corner</a>
+          <a href="/stornoway">Stornoway</a>
           <a href="/frontenac">Frontenac</a>
-          <a href="/sainte-catherine-de-hatley">Sainte-Catherine-de-Hatley</a>
-          <a href="/bolton-ouest">Bolton-Ouest</a>
-          <a href="/chartierville">Chartierville</a>
-          <a href="/westbury">Westbury</a>
-          <a href="/lawrenceville">Lawrenceville</a>
-          <a href="/lac-megantic">Lac-Mégantic</a>
+          <a href="/scotstown">Scotstown</a>
+          <a href="/saint-venant-de-paquette">Saint-Venant-de-Paquette</a>
+          <a href="/ulverton">Ulverton</a>
           <a href="/wotton">Wotton</a>
-          <a href="/bedford">Bedford</a>
+          <a href="/valcourt">Valcourt</a>
+          <a href="/newport">Newport</a>
+          <a href="/saint-robert-bellarmin">Saint-Robert-Bellarmin</a>
+          <a href="/lambton">Lambton</a>
+          <a href="/sainte-cecile-de-whitton">Sainte-Cécile-de-Whitton</a>
+          <a href="/nantes">Nantes</a>
         </div>
       </div>
 
@@ -1164,6 +1164,23 @@ if (_stickyBar) {
     els.forEach(function(el){io.observe(el);});
   } else {
     els.forEach(function(el){el.classList.add('is-visible');});
+  }
+  /* Nav scroll tint */
+  var nav=document.querySelector('.el-nav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('is-scrolled',window.scrollY>60);},{passive:true});}
+  /* FAQ accordion */
+  document.querySelectorAll('.el-faq-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.el-faq-item');
+      var isOpen=item.classList.contains('is-open');
+      document.querySelectorAll('.el-faq-item.is-open').forEach(function(i){i.classList.remove('is-open');});
+      if(!isOpen)item.classList.add('is-open');
+    });
+  });
+})();
+</script>
+</body>
+</html>ible');});
   }
   /* Nav scroll tint */
   var nav=document.querySelector('.el-nav');
