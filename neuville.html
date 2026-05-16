@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          16 demandes de climatisation cette semaine
+          10 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-climatisation-thermopompe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-climatisation-thermopompe">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="c10b7556-70ac-4af0-bf23-518aefa51822">
+  <input type="hidden" name="subject" value="Nouveau lead — Climatisation Thermopompe Québec — Neuville">
   <input type="hidden" name="ville-cible" value="Neuville">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="cl-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -858,28 +859,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          16 demandes de climatisation cette semaine
+          10 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Capitale-Nationale (03)</h4>
         <div class="el-footer__links">
-          <a href="/lac-delage">Lac-Delage</a>
+          <a href="/saint-aime-des-lacs">Saint-Aimé-des-Lacs</a>
+          <a href="/portneuf">Portneuf</a>
+          <a href="/stoneham-et-tewkesbury">Stoneham-et-Tewkesbury</a>
+          <a href="/sainte-christine-d-auvergne">Sainte-Christine-d'Auvergne</a>
+          <a href="/saint-basile">Saint-Basile</a>
+          <a href="/saint-laurent-de-l-ile-d-orleans">Saint-Laurent-de-l'Île-d'Orléans</a>
+          <a href="/saint-simeon">Saint-Siméon</a>
+          <a href="/sainte-anne-de-beaupre">Sainte-Anne-de-Beaupré</a>
+          <a href="/saint-urbain">Saint-Urbain</a>
+          <a href="/lac-beauport">Lac-Beauport</a>
+          <a href="/saint-marc-des-carrieres">Saint-Marc-des-Carrières</a>
           <a href="/baie-sainte-catherine">Baie-Sainte-Catherine</a>
-          <a href="/sainte-brigitte-de-laval">Sainte-Brigitte-de-Laval</a>
-          <a href="/saint-gilbert">Saint-Gilbert</a>
+          <a href="/saint-ubalde">Saint-Ubalde</a>
+          <a href="/saint-thuribe">Saint-Thuribe</a>
           <a href="/linton">Linton</a>
-          <a href="/boischatel">Boischatel</a>
-          <a href="/l-ancienne-lorette">L'Ancienne-Lorette</a>
-          <a href="/deschambault-grondines">Deschambault-Grondines</a>
-          <a href="/saint-ferreol-les-neiges">Saint-Ferréol-les-Neiges</a>
-          <a href="/la-malbaie">La Malbaie</a>
-          <a href="/l-ange-gardien">L'Ange-Gardien</a>
-          <a href="/saint-francois-de-l-ile-d-orleans">Saint-François-de-l'Île-d'Orléans</a>
-          <a href="/saint-tite-des-caps">Saint-Tite-des-Caps</a>
-          <a href="/sainte-famille-de-l-ile-d-orleans">Sainte-Famille-de-l'Île-d'Orléans</a>
-          <a href="/lac-jacques-cartier">Lac-Jacques-Cartier</a>
         </div>
       </div>
 
@@ -975,7 +976,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {

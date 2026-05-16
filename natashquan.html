@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          4 demandes de climatisation cette semaine
+          15 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-climatisation-thermopompe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-climatisation-thermopompe">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="c10b7556-70ac-4af0-bf23-518aefa51822">
+  <input type="hidden" name="subject" value="Nouveau lead — Climatisation Thermopompe Québec — Natashquan">
   <input type="hidden" name="ville-cible" value="Natashquan">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="cl-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -864,28 +865,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          4 demandes de climatisation cette semaine
+          15 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Côte-Nord (09)</h4>
         <div class="el-footer__links">
-          <a href="/port-cartier">Port-Cartier</a>
-          <a href="/kawawachikamach">Kawawachikamach</a>
+          <a href="/sacre-coeur">Sacré-Coeur</a>
+          <a href="/portneuf-sur-mer">Portneuf-sur-Mer</a>
+          <a href="/les-escoumins">Les Escoumins</a>
+          <a href="/riviere-nipissis">Rivière-Nipissis</a>
+          <a href="/sept-iles">Sept-Îles</a>
+          <a href="/schefferville">Schefferville</a>
+          <a href="/fermont">Fermont</a>
+          <a href="/lac-juillet">Lac-Juillet</a>
           <a href="/riviere-au-tonnerre">Rivière-au-Tonnerre</a>
-          <a href="/godbout">Godbout</a>
-          <a href="/havre-saint-pierre">Havre-Saint-Pierre</a>
-          <a href="/maliotenam">Maliotenam</a>
           <a href="/lac-john">Lac-John</a>
-          <a href="/bonne-esperance">Bonne-Espérance</a>
-          <a href="/lac-au-brochet">Lac-au-Brochet</a>
-          <a href="/matimekosh">Matimekosh</a>
-          <a href="/lac-vacher">Lac-Vacher</a>
-          <a href="/aguanish">Aguanish</a>
-          <a href="/les-bergeronnes">Les Bergeronnes</a>
-          <a href="/colombier">Colombier</a>
-          <a href="/longue-pointe-de-mingan">Longue-Pointe-de-Mingan</a>
+          <a href="/riviere-saint-jean">Rivière-Saint-Jean</a>
+          <a href="/pointe-lebel">Pointe-Lebel</a>
+          <a href="/gros-mecatina">Gros-Mécatina</a>
+          <a href="/maliotenam">Maliotenam</a>
+          <a href="/lac-jerome">Lac-Jérôme</a>
         </div>
       </div>
 
@@ -981,7 +982,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {

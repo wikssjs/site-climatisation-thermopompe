@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          12 demandes de climatisation cette semaine
+          11 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-climatisation-thermopompe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-climatisation-thermopompe">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="c10b7556-70ac-4af0-bf23-518aefa51822">
+  <input type="hidden" name="subject" value="Nouveau lead — Climatisation Thermopompe Québec — Sainte-Angèle-de-Mérici">
   <input type="hidden" name="ville-cible" value="Sainte-Angèle-de-Mérici">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="cl-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -864,28 +865,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          12 demandes de climatisation cette semaine
+          11 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Bas-Saint-Laurent (01)</h4>
         <div class="el-footer__links">
-          <a href="/sainte-irene">Sainte-Irène</a>
-          <a href="/saint-elzear-de-temiscouata">Saint-Elzéar-de-Témiscouata</a>
-          <a href="/pohenegamook">Pohénégamook</a>
-          <a href="/saint-vianney">Saint-Vianney</a>
-          <a href="/saint-joseph-de-kamouraska">Saint-Joseph-de-Kamouraska</a>
-          <a href="/saint-joseph-de-lepage">Saint-Joseph-de-Lepage</a>
-          <a href="/amqui">Amqui</a>
-          <a href="/saint-jean-de-dieu">Saint-Jean-de-Dieu</a>
           <a href="/la-pocatiere">La Pocatière</a>
-          <a href="/saint-pierre-de-lamy">Saint-Pierre-de-Lamy</a>
-          <a href="/saint-gabriel-lalemant">Saint-Gabriel-Lalemant</a>
-          <a href="/lac-des-eaux-mortes">Lac-des-Eaux-Mortes</a>
           <a href="/les-hauteurs">Les Hauteurs</a>
-          <a href="/saint-louis-du-ha-ha">Saint-Louis-du-Ha! Ha!</a>
-          <a href="/saint-cleophas">Saint-Cléophas</a>
+          <a href="/metis-sur-mer">Métis-sur-Mer</a>
+          <a href="/riviere-bleue">Rivière-Bleue</a>
+          <a href="/petit-lac-sainte-anne">Petit-Lac-Sainte-Anne</a>
+          <a href="/causapscal">Causapscal</a>
+          <a href="/saint-charles-garnier">Saint-Charles-Garnier</a>
+          <a href="/riviere-ouelle">Rivière-Ouelle</a>
+          <a href="/saint-hubert-de-riviere-du-loup">Saint-Hubert-de-Rivière-du-Loup</a>
+          <a href="/saint-paul-de-la-croix">Saint-Paul-de-la-Croix</a>
+          <a href="/saint-damase">Saint-Damase</a>
+          <a href="/saint-francois-xavier-de-viger">Saint-François-Xavier-de-Viger</a>
+          <a href="/saint-clement">Saint-Clément</a>
+          <a href="/saint-joseph-de-kamouraska">Saint-Joseph-de-Kamouraska</a>
+          <a href="/saint-ulric">Saint-Ulric</a>
         </div>
       </div>
 
@@ -981,7 +982,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {

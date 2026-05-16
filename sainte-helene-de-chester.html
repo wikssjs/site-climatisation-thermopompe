@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="cl-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          11 demandes de climatisation cette semaine
+          14 demandes de climatisation cette semaine
         </div>
       </div>
 
@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-climatisation-thermopompe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-climatisation-thermopompe">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="c10b7556-70ac-4af0-bf23-518aefa51822">
+  <input type="hidden" name="subject" value="Nouveau lead — Climatisation Thermopompe Québec — Sainte-Hélène-de-Chester">
   <input type="hidden" name="ville-cible" value="Sainte-Hélène-de-Chester">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="cl-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -858,28 +859,28 @@ placeholder="Ex : superficie a climatiser, nombre de pieces, type de logement...
         </p>
         <div class="el-footer__pulse-row">
           <span class="cl-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          11 demandes de climatisation cette semaine
+          14 demandes de climatisation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Climatisation thermopompe en Centre-du-Québec (17)</h4>
         <div class="el-footer__links">
-          <a href="/pierreville">Pierreville</a>
-          <a href="/inverness">Inverness</a>
-          <a href="/saint-germain-de-grantham">Saint-Germain-de-Grantham</a>
-          <a href="/daveluyville">Daveluyville</a>
-          <a href="/notre-dame-de-ham">Notre-Dame-de-Ham</a>
-          <a href="/lemieux">Lemieux</a>
-          <a href="/saint-sylvere">Saint-Sylvère</a>
-          <a href="/kingsey-falls">Kingsey Falls</a>
-          <a href="/saint-eugene">Saint-Eugène</a>
+          <a href="/saint-cyrille-de-wendover">Saint-Cyrille-de-Wendover</a>
+          <a href="/saint-pie-de-guire">Saint-Pie-de-Guire</a>
+          <a href="/notre-dame-de-lourdes">Notre-Dame-de-Lourdes</a>
           <a href="/nicolet">Nicolet</a>
-          <a href="/sainte-eulalie">Sainte-Eulalie</a>
-          <a href="/maddington-falls">Maddington Falls</a>
-          <a href="/saint-celestin">Saint-Célestin</a>
-          <a href="/baie-du-febvre">Baie-du-Febvre</a>
-          <a href="/sainte-monique">Sainte-Monique</a>
+          <a href="/saint-louis-de-blandford">Saint-Louis-de-Blandford</a>
+          <a href="/saint-wenceslas">Saint-Wenceslas</a>
+          <a href="/saint-pierre-les-becquets">Saint-Pierre-les-Becquets</a>
+          <a href="/saint-remi-de-tingwick">Saint-Rémi-de-Tingwick</a>
+          <a href="/saint-norbert-d-arthabaska">Saint-Norbert-d'Arthabaska</a>
+          <a href="/notre-dame-du-bon-conseil">Notre-Dame-du-Bon-Conseil</a>
+          <a href="/sainte-francoise">Sainte-Françoise</a>
+          <a href="/saint-leonard-d-aston">Saint-Léonard-d'Aston</a>
+          <a href="/saint-zephirin-de-courval">Saint-Zéphirin-de-Courval</a>
+          <a href="/sainte-perpetue">Sainte-Perpétue</a>
+          <a href="/wolinak">Wôlinak</a>
         </div>
       </div>
 
@@ -975,7 +976,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
