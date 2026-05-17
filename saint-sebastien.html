@@ -1181,4 +1181,21 @@ if (_stickyBar) {
 })();
 </script>
 </body>
+</html>ible');});
+  }
+  /* Nav scroll tint */
+  var nav=document.querySelector('.cl-nav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('is-scrolled',window.scrollY>60);},{passive:true});}
+  /* FAQ accordion */
+  document.querySelectorAll('.cl-faq-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.cl-faq-item');
+      var isOpen=item.classList.contains('is-open');
+      document.querySelectorAll('.cl-faq-item.is-open').forEach(function(i){i.classList.remove('is-open');});
+      if(!isOpen)item.classList.add('is-open');
+    });
+  });
+})();
+</script>
+</body>
 </html>
