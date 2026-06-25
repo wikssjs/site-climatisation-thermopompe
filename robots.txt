@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /soumission-climatisation-thermopompe/
 
 Sitemap: https://climatisation-thermopompe.ca/sitemap-index.xml
